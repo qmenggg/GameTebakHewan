@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Tebak Gambar Hewan</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Home Page -->
+    <div id="home-page" class="page active">
+        <div class="container">
+            <h1>Game Tebak Gambar Hewan</h1>
+            <div class="game-modes">
+                <div class="mode-card" onclick="startGame('easy')">
+                    <i class="fas fa-smile"></i>
+                    <h2>Mode Mudah</h2>
+                    <p>Pilihan jawaban lebih sederhana</p>
+                </div>
+                <div class="mode-card" onclick="startGame('medium')">
+                    <i class="fas fa-meh"></i>
+                    <h2>Mode Sedang</h2>
+                    <p>Pilihan jawaban lebih menantang</p>
+                </div>
+                <div class="mode-card" onclick="startGame('hard')">
+                    <i class="fas fa-frown"></i>
+                    <h2>Mode Sulit</h2>
+                    <p>Pilihan jawaban sangat menantang</p>
+                </div>
+                <div class="mode-card" onclick="startGame('infinity')">
+                    <i class="fas fa-infinity"></i>
+                    <h2>Mode Infinity</h2>
+                    <p>Tebak hewan dari ciri-cirinya!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Game Page -->
+    <div id="game-page" class="page">
+        <div class="container">
+            <div class="header">
+                <button class="home-btn" onclick="goToHome()">
+                    <i class="fas fa-home"></i> Home
+                </button>
+                <div class="level-info">
+                    <span>Level: <span id="current-level">1</span></span>
+                    <div class="stars-container">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="game-area">
+                <div class="score-container">
+                    <div class="score-display">
+                        <p>Skor: <span id="score">0</span></p>
+                        <p>Benar: <span id="correct-count">0</span>/<span id="total-questions">0</span></p>
+                    </div>
+                    <div class="achievements-container">
+                        <div class="achievement" id="achievement-10">
+                            <i class="fas fa-trophy"></i>
+                            <span>Tebak 10 Hewan!</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="image-container" id="image-container">
+                    <img id="animal-image" src="" alt="Gambar Hewan">
+                </div>
+                <div class="characteristics-container" id="characteristics-container">
+                    <div class="message" id="message"></div>
+                </div>
+                <div class="options-container">
+                    <button class="option-btn" onclick="checkAnswer(0)"></button>
+                    <button class="option-btn" onclick="checkAnswer(1)"></button>
+                    <button class="option-btn" onclick="checkAnswer(2)"></button>
+                    <button class="option-btn" onclick="checkAnswer(3)"></button>
+                </div>
+                <div class="button-container">
+                    <button id="retry-btn" onclick="retryLevel()" class="hidden">
+                        <i class="fas fa-redo"></i> Coba Lagi
+                    </button>
+                    <button id="next-level-btn" onclick="nextLevel()" class="hidden">
+                        <i class="fas fa-arrow-up"></i> Level Selanjutnya
+                    </button>
+                    <button id="next-btn" onclick="nextQuestion()">Pertanyaan Selanjutnya</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio elements for sound effects -->
+    <audio id="correct-sound" src="sounds/correct.mp3" preload="auto"></audio>
+    <audio id="incorrect-sound" src="sounds/incorrect.mp3" preload="auto"></audio>
+    <script src="script.js"></script>
+</body>
+</html> 
